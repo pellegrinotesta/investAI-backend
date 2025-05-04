@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-02T17:12:24+0200",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.z20250331-1358, environment: Java 21.0.6 (Eclipse Adoptium)"
+    date = "2025-05-04T19:40:12+0200",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.1 (Oracle Corporation)"
 )
 @Component
 public class UserMapperImpl implements UserMapper {
@@ -50,15 +50,15 @@ public class UserMapperImpl implements UserMapper {
         User user = new User();
 
         user.setId( userDTO.getId() );
-        user.setEmail( userDTO.getEmail() );
-        user.setName( userDTO.getName() );
-        user.setPassword( userDTO.getPassword() );
-        user.setStatus( userDTO.getStatus() );
-        user.setSurname( userDTO.getSurname() );
         Set<Role> set = userDTO.getRoles();
         if ( set != null ) {
             user.setRoles( new LinkedHashSet<Role>( set ) );
         }
+        user.setPassword( userDTO.getPassword() );
+        user.setEmail( userDTO.getEmail() );
+        user.setName( userDTO.getName() );
+        user.setSurname( userDTO.getSurname() );
+        user.setStatus( userDTO.getStatus() );
 
         return user;
     }
@@ -85,9 +85,9 @@ public class UserMapperImpl implements UserMapper {
 
         User user = new User();
 
+        user.setPassword( profileDTO.getPassword() );
         user.setEmail( profileDTO.getEmail() );
         user.setName( profileDTO.getName() );
-        user.setPassword( profileDTO.getPassword() );
         user.setSurname( profileDTO.getSurname() );
 
         return user;
@@ -102,21 +102,6 @@ public class UserMapperImpl implements UserMapper {
         if ( source.getId() != null ) {
             target.setId( source.getId() );
         }
-        if ( source.getEmail() != null ) {
-            target.setEmail( source.getEmail() );
-        }
-        if ( source.getName() != null ) {
-            target.setName( source.getName() );
-        }
-        if ( source.getPassword() != null ) {
-            target.setPassword( source.getPassword() );
-        }
-        if ( source.getStatus() != null ) {
-            target.setStatus( source.getStatus() );
-        }
-        if ( source.getSurname() != null ) {
-            target.setSurname( source.getSurname() );
-        }
         if ( target.getRoles() != null ) {
             Set<Role> set = source.getRoles();
             if ( set != null ) {
@@ -129,6 +114,24 @@ public class UserMapperImpl implements UserMapper {
             if ( set != null ) {
                 target.setRoles( new LinkedHashSet<Role>( set ) );
             }
+        }
+        if ( source.getPassword() != null ) {
+            target.setPassword( source.getPassword() );
+        }
+        if ( source.getEmail() != null ) {
+            target.setEmail( source.getEmail() );
+        }
+        if ( source.getName() != null ) {
+            target.setName( source.getName() );
+        }
+        if ( source.getSurname() != null ) {
+            target.setSurname( source.getSurname() );
+        }
+        if ( source.getStatus() != null ) {
+            target.setStatus( source.getStatus() );
+        }
+        if ( source.getCliente() != null ) {
+            target.setCliente( source.getCliente() );
         }
     }
 }
