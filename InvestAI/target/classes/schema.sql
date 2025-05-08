@@ -13,7 +13,8 @@ CREATE TABLE `roles` (
 );
 
 CREATE TABLE `cliente` (
-  `id` varchar(255) PRIMARY KEY,
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
+  `codice_cliente` varchar(255) UNIQUE,
   `user_id` bigint UNIQUE,
   `codice_fiscale` varchar(255) UNIQUE,
   `data_nascita` date,
@@ -32,8 +33,8 @@ CREATE TABLE `password_reset_token` (
 );
 
 CREATE TABLE `conto_corrente` (
-  `id` varchar(255) PRIMARY KEY,
-  `cliente_id` varchar(255),
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
+  `cliente_id` bigint,
   `numero_conto` varchar(255) UNIQUE,
   `iban` varchar(255) UNIQUE,
   `saldo` decimal,
@@ -44,8 +45,8 @@ CREATE TABLE `conto_corrente` (
 );
 
 CREATE TABLE `portafoglio` (
-  `id` varchar(255) PRIMARY KEY,
-  `cliente_id` varchar(255),
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
+  `cliente_id` bigint,
   `nome` varchar(255),
   `descrizione` varchar(255),
   `data_creazione` datetime,
@@ -56,7 +57,7 @@ CREATE TABLE `portafoglio` (
 );
 
 CREATE TABLE `strumento` (
-  `id` varchar(255) PRIMARY KEY,
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
   `codice_isin` varchar(255) UNIQUE,
   `nome` varchar(255),
   `tipo_strumento` varchar(255),
@@ -68,9 +69,9 @@ CREATE TABLE `strumento` (
 );
 
 CREATE TABLE `posizione` (
-  `id` varchar(255) PRIMARY KEY,
-  `portafoglio_id` varchar(255),
-  `strumento_id` varchar(255),
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
+  `portafoglio_id` bigint,
+  `strumento_id` bigint,
   `quantita` double,
   `prezzo_acquisto` decimal,
   `data_acquisto` datetime,
@@ -80,10 +81,10 @@ CREATE TABLE `posizione` (
 );
 
 CREATE TABLE `transazione` (
-  `id` varchar(255) PRIMARY KEY,
-  `cliente_id` varchar(255),
-  `portafoglio_id` varchar(255),
-  `strumento_id` varchar(255),
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
+  `cliente_id` bigint,
+  `portafoglio_id` bigint,
+  `strumento_id` bigint,
   `tipo_transazione` varchar(255),
   `quantita` double,
   `prezzo` decimal,
@@ -94,8 +95,8 @@ CREATE TABLE `transazione` (
 );
 
 CREATE TABLE `simulazione` (
-  `id` varchar(255) PRIMARY KEY,
-  `cliente_id` varchar(255),
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
+  `cliente_id` bigint,
   `nome` varchar(255),
   `descrizione` varchar(255),
   `data_creazione` datetime,
@@ -109,8 +110,8 @@ CREATE TABLE `simulazione` (
 );
 
 CREATE TABLE `risultato_simulazione` (
-  `id` varchar(255) PRIMARY KEY,
-  `simulazione_id` varchar(255),
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
+  `simulazione_id` bigint,
   `timestamp` datetime,
   `valore_proiettato` decimal,
   `rendimento_annualizzato` double,
@@ -121,8 +122,8 @@ CREATE TABLE `risultato_simulazione` (
 );
 
 CREATE TABLE `dati_mercato` (
-  `id` varchar(255) PRIMARY KEY,
-  `strumento_id` varchar(255),
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
+  `strumento_id` bigint,
   `data` date,
   `prezzo_apertura` decimal,
   `prezzo_massimo` decimal,
@@ -133,10 +134,10 @@ CREATE TABLE `dati_mercato` (
 );
 
 CREATE TABLE `avviso` (
-  `id` varchar(255) PRIMARY KEY,
-  `cliente_id` varchar(255),
-  `strumento_id` varchar(255),
-  `portafoglio_id` varchar(255),
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
+  `cliente_id` bigint ,
+  `strumento_id` bigint,
+  `portafoglio_id` bigint,
   `tipo_avviso` varchar(255),
   `soglia` decimal,
   `messaggio` varchar(255),
