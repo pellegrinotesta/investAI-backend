@@ -45,5 +45,8 @@ public class User extends BasicEntity {
     @JoinTable(name = "roles", joinColumns = @JoinColumn(name = "user_id"))
     private Set<Role> roles;
 
+    @OneToOne(mappedBy = "user")
+    private Cliente cliente;
+
 
 }
