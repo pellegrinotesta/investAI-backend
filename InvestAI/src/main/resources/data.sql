@@ -1,6 +1,6 @@
 INSERT INTO `user` (`id`, `name`, `surname`, `email`, `password`, `status`) VALUES
-(1, 'Mario', 'Rossi', 'mario.rossi@example.com', 'hashedpassword1', 'ATTIVO'),
-(2, 'Luigi', 'Bianchi', 'luigi.bianchi@example.com', 'hashedpassword2', 'ATTIVO');
+(1, 'Mario', 'Rossi', 'mario.rossi@example.com', '$2a$10$EGcbnw2xbw39nlYCWyQuc.0Q9GwZxraLr7n8dNmimZNqPACGaiky.', 'ATTIVO'),
+(2, 'Luigi', 'Bianchi', 'luigi.bianchi@example.com', '$2a$10$EGcbnw2xbw39nlYCWyQuc.0Q9GwZxraLr7n8dNmimZNqPACGaiky.', 'ATTIVO');
 
 INSERT INTO `roles` (`user_id`, `role`) VALUES
 (1, 'CLIENTE'),

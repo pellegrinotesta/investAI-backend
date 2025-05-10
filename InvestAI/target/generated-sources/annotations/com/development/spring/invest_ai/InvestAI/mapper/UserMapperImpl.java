@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-05-08T18:59:51+0200",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.z20250331-1358, environment: Java 21.0.6 (Eclipse Adoptium)"
+    date = "2025-05-10T10:05:07+0200",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.1 (Oracle Corporation)"
 )
 @Component
 public class UserMapperImpl implements UserMapper {
@@ -27,16 +27,16 @@ public class UserMapperImpl implements UserMapper {
 
         UserDTO userDTO = new UserDTO();
 
-        userDTO.setEmail( user.getEmail() );
         userDTO.setId( user.getId() );
-        userDTO.setName( user.getName() );
         userDTO.setPassword( user.getPassword() );
+        userDTO.setEmail( user.getEmail() );
+        userDTO.setName( user.getName() );
+        userDTO.setSurname( user.getSurname() );
+        userDTO.setStatus( user.getStatus() );
         Set<Role> set = user.getRoles();
         if ( set != null ) {
             userDTO.setRoles( new LinkedHashSet<Role>( set ) );
         }
-        userDTO.setStatus( user.getStatus() );
-        userDTO.setSurname( user.getSurname() );
 
         return userDTO;
     }
@@ -50,15 +50,15 @@ public class UserMapperImpl implements UserMapper {
         User user = new User();
 
         user.setId( userDTO.getId() );
-        user.setEmail( userDTO.getEmail() );
-        user.setName( userDTO.getName() );
-        user.setPassword( userDTO.getPassword() );
         Set<Role> set = userDTO.getRoles();
         if ( set != null ) {
             user.setRoles( new LinkedHashSet<Role>( set ) );
         }
-        user.setStatus( userDTO.getStatus() );
+        user.setPassword( userDTO.getPassword() );
+        user.setEmail( userDTO.getEmail() );
+        user.setName( userDTO.getName() );
         user.setSurname( userDTO.getSurname() );
+        user.setStatus( userDTO.getStatus() );
 
         return user;
     }
@@ -85,9 +85,9 @@ public class UserMapperImpl implements UserMapper {
 
         User user = new User();
 
+        user.setPassword( profileDTO.getPassword() );
         user.setEmail( profileDTO.getEmail() );
         user.setName( profileDTO.getName() );
-        user.setPassword( profileDTO.getPassword() );
         user.setSurname( profileDTO.getSurname() );
 
         return user;
@@ -102,18 +102,6 @@ public class UserMapperImpl implements UserMapper {
         if ( source.getId() != null ) {
             target.setId( source.getId() );
         }
-        if ( source.getCliente() != null ) {
-            target.setCliente( source.getCliente() );
-        }
-        if ( source.getEmail() != null ) {
-            target.setEmail( source.getEmail() );
-        }
-        if ( source.getName() != null ) {
-            target.setName( source.getName() );
-        }
-        if ( source.getPassword() != null ) {
-            target.setPassword( source.getPassword() );
-        }
         if ( target.getRoles() != null ) {
             Set<Role> set = source.getRoles();
             if ( set != null ) {
@@ -127,11 +115,23 @@ public class UserMapperImpl implements UserMapper {
                 target.setRoles( new LinkedHashSet<Role>( set ) );
             }
         }
-        if ( source.getStatus() != null ) {
-            target.setStatus( source.getStatus() );
+        if ( source.getPassword() != null ) {
+            target.setPassword( source.getPassword() );
+        }
+        if ( source.getEmail() != null ) {
+            target.setEmail( source.getEmail() );
+        }
+        if ( source.getName() != null ) {
+            target.setName( source.getName() );
         }
         if ( source.getSurname() != null ) {
             target.setSurname( source.getSurname() );
+        }
+        if ( source.getStatus() != null ) {
+            target.setStatus( source.getStatus() );
+        }
+        if ( source.getCliente() != null ) {
+            target.setCliente( source.getCliente() );
         }
     }
 }
