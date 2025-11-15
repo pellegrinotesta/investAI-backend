@@ -83,6 +83,7 @@ com/development/spring/invest_ai/InvestAI/dtos/TransazioneDTO.class
 com/development/spring/invest_ai/InvestAI/repository/RisultatoSimulazioneRepository.class
 com/development/spring/invest_ai/InvestAI/repository/ClienteRepository.class
 com/development/spring/invest_ai/InvestAI/security/dtos/AuthenticationRequestDTO$AuthenticationRequestDTOBuilder.class
+com/development/spring/invest_ai/InvestAI/controllers/UserController.class
 com/development/spring/invest_ai/InvestAI/libs/data/models/EmptyFilter.class
 com/development/spring/invest_ai/InvestAI/security/mappers/UserSecurityMapper.class
 com/development/spring/invest_ai/InvestAI/entity/Posizione.class
@@ -90,6 +91,7 @@ com/development/spring/invest_ai/InvestAI/libs/web/controllers/CreateController.
 com/development/spring/invest_ai/InvestAI/dtos/DatiMercatoDTO.class
 com/development/spring/invest_ai/InvestAI/entity/Avviso$AvvisoBuilder.class
 com/development/spring/invest_ai/InvestAI/InvestAiApplication.class
+com/development/spring/invest_ai/InvestAI/dtos/UserRegistrationDTO.class
 com/development/spring/invest_ai/InvestAI/libs/data/components/SpecificationFactory$4.class
 com/development/spring/invest_ai/InvestAI/libs/data/specifications/FieldHasMembersSpecification.class
 com/development/spring/invest_ai/InvestAI/dtos/AvvisoDTO.class
@@ -139,6 +141,7 @@ com/development/spring/invest_ai/InvestAI/libs/data/components/SpecificationFact
 com/development/spring/invest_ai/InvestAI/libs/data/components/SpecificationFactory$13.class
 com/development/spring/invest_ai/InvestAI/entity/Strumento$StrumentoBuilder.class
 com/development/spring/invest_ai/InvestAI/libs/data/components/SpecificationFactory$2.class
+com/development/spring/invest_ai/InvestAI/dtos/UserRegistrationDTO$UserRegistrationDTOBuilder.class
 com/development/spring/invest_ai/InvestAI/libs/data/specifications/GenericSpecification.class
 com/development/spring/invest_ai/InvestAI/config/AsyncConfig.class
 com/development/spring/invest_ai/InvestAI/shared/components/SpringContext.class

@@ -1,6 +1,8 @@
 package com.development.spring.invest_ai.InvestAI.service;
 
 import com.development.spring.invest_ai.InvestAI.components.UserSpecificationsFactory;
+import com.development.spring.invest_ai.InvestAI.dtos.UserRegistrationDTO;
+import com.development.spring.invest_ai.InvestAI.entity.Cliente;
 import com.development.spring.invest_ai.InvestAI.entity.User;
 import com.development.spring.invest_ai.InvestAI.libs.data.models.Filter;
 import com.development.spring.invest_ai.InvestAI.libs.utils.ComparableWrapper;
@@ -43,7 +45,7 @@ public class UserService extends BasicService {
     private final Map<String, Function<User, ComparableWrapper>> sortingFields = new HashMap<>() {{
         put("name", user -> user.getName() != null ? new ComparableWrapper(user.getName()) : null);
         put("surname", user -> user.getSurname() != null ? new ComparableWrapper(user.getSurname()) : null);
-//        put("roles", user -> user.getRoles() != null ? new ComparableWrapper(user.getRoles()) : null);
+        put("roles", user -> user.getRoles() != null ? new ComparableWrapper(user.getRoles()) : null);
     }};
 
 
@@ -112,8 +114,6 @@ public class UserService extends BasicService {
         }
     }
 
-
-
     private Page<User> applyRoleVisibilityFilter(Page<User> usersPage) {
 
         List<User> filteredUsers = new ArrayList<>();
@@ -139,11 +139,6 @@ public class UserService extends BasicService {
 
         return save(user);
     }
-
-    public Optional<User> getByEmail(String email){
-        return userRepository.findByEmail(email);
-    }
-
 
     public User partialUpdate(User user) {
 
@@ -204,6 +199,36 @@ public class UserService extends BasicService {
     public boolean existsByUserId(Long userId){
         Optional<User> optionalUser = userRepository.findByUserId(userId);
         return optionalUser.isPresent();
+    }
+
+    public User firstRegistration(UserRegistrationDTO dto) {
+        if (userRepository.findByEmail(dto.getEmail()).isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email is already in use.");
+        }
+
+        Set<Role> assignedRoles = new HashSet<>();
+        assignedRoles.add(Role.CLIENTE);
+
+        User user = User.builder()
+                .name(dto.getName())
+                .surname(dto.getSurname())
+                .email(dto.getEmail())
+                .password(passwordEncoder.encode(dto.getPassword()))
+                .roles(assignedRoles)
+                .build();
+
+        Cliente cliente = Cliente.builder()
+                .codiceFiscale(dto.getCodiceFiscale())
+                .dataRegistrazione(new Date())
+                .indirizzo(dto.getIndirizzo())
+                .telefono(dto.getTelefono())
+                .dataNascita(dto.getDataNascita())
+                .user(user)
+                .build();
+
+        user.setCliente(cliente);
+
+        return save(user);
     }
 
 }

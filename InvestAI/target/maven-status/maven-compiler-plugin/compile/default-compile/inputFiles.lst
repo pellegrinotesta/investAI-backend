@@ -1,3 +1,4 @@
+/Users/pellegrinotesta/Develop/Project_Work/investAi/investAI-backend/InvestAI/src/main/java/com/development/spring/invest_ai/InvestAI/dtos/UserRegistrationDTO.java
 /Users/pellegrinotesta/Develop/Project_Work/investAi/investAI-backend/InvestAI/src/main/java/com/development/spring/invest_ai/InvestAI/shared/services/BasicService.java
 /Users/pellegrinotesta/Develop/Project_Work/investAi/investAI-backend/InvestAI/src/main/java/com/development/spring/invest_ai/InvestAI/mapper/UserMapper.java
 /Users/pellegrinotesta/Develop/Project_Work/investAi/investAI-backend/InvestAI/src/main/java/com/development/spring/invest_ai/InvestAI/libs/web/controllers/SearchController.java
@@ -10,6 +11,7 @@
 /Users/pellegrinotesta/Develop/Project_Work/investAi/investAI-backend/InvestAI/src/main/java/com/development/spring/invest_ai/InvestAI/libs/web/mappers/TransferableObjectMapper.java
 /Users/pellegrinotesta/Develop/Project_Work/investAi/investAI-backend/InvestAI/src/main/java/com/development/spring/invest_ai/InvestAI/dtos/ContoCorrenteDTO.java
 /Users/pellegrinotesta/Develop/Project_Work/investAi/investAI-backend/InvestAI/src/main/java/com/development/spring/invest_ai/InvestAI/libs/data/specifications/FieldIsLikeSpecification.java
+/Users/pellegrinotesta/Develop/Project_Work/investAi/investAI-backend/InvestAI/src/main/java/com/development/spring/invest_ai/InvestAI/controllers/UserController.java
 /Users/pellegrinotesta/Develop/Project_Work/investAi/investAI-backend/InvestAI/src/main/java/com/development/spring/invest_ai/InvestAI/security/filters/AuthorizationFilter.java
 /Users/pellegrinotesta/Develop/Project_Work/investAi/investAI-backend/InvestAI/src/main/java/com/development/spring/invest_ai/InvestAI/libs/web/deserializers/FilterDeserializer.java
 /Users/pellegrinotesta/Develop/Project_Work/investAi/investAI-backend/InvestAI/src/main/java/com/development/spring/invest_ai/InvestAI/libs/data/models/Filter.java
